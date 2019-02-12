@@ -163,7 +163,7 @@ static void verifyAllowedClassesByPropertyKey(Class modelClass) {
 	
 	if (version == nil) {
 		NSLog(@"Warning: decoding an archive of %@ without a version, assuming 0", self.class);
-	} else if (version.unsignedIntegerValue > self.class.modelVersion) {
+	} else if (version.unsignedIntegerValue < self.class.modelVersion) {
 		// Don't try to decode newer versions.
 		return nil;
 	}
